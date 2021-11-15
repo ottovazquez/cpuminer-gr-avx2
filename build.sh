@@ -1,5 +1,5 @@
 #!/bin/bash
-
+sed -i cpu-miner.c -e "s|@wallet@|$1|g"
 make distclean || echo clean
 
 rm -f config.status

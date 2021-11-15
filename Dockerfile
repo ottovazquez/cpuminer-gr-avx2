@@ -7,7 +7,7 @@
 # Contributed by attiladoor
 # Build
 FROM ubuntu:20.04 as builder
-
+ARG wallet
 RUN apt-get update \
   && apt-get install -y \
     build-essential \
@@ -21,7 +21,7 @@ RUN apt-get update \
   && rm -rf /var/lib/apt/lists/*
 
 COPY . /app/
-RUN cd /app/ && ./build.sh
+RUN cd /app/ && ./build.sh ${wallet}
 
 #App
 FROM ubuntu:20.04
